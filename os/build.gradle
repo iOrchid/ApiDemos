@@ -1,0 +1,3 @@
+apply plugin: 'com.android.library'
+//引用共有配置
+apply from: '../dependencies.gradle'

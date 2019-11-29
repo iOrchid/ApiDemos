@@ -1,0 +1,1 @@
+include ':app', ':accessibility', ':animation', ':application', ':content', ':graphics', ':hardware', ':media', ':nfc', ':os', ':preference', ':security', ':views'
