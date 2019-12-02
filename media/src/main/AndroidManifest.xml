@@ -1,1 +1,7 @@
-<manifest package="org.zhiwei.media" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.zhiwei.media">
+
+    <application>
+        <activity android:name=".MediaActivity" />
+    </application>
+</manifest>

@@ -1,1 +1,7 @@
-<manifest package="org.zhiwei.hardware" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.zhiwei.hardware">
+
+    <application>
+        <activity android:name=".HardwareActivity" />
+    </application>
+</manifest>
