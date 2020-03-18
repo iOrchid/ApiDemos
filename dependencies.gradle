@@ -34,10 +34,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core-ktx:1.1.0'
-
-    //引用一个开源工具库，用于日志打印和信息提示方便
-    implementation 'com.blankj:utilcodex:1.26.0'
+    implementation 'androidx.core:core-ktx:1.2.0'
 
     //单元测试相关依赖
     testImplementation 'junit:junit:4.12'
