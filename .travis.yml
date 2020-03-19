@@ -17,7 +17,7 @@ cache:
 env:
   global:
     - ANDROID_API=29
-    - ANDROID_BUILD_TOOLS=29.0.2
+    - ANDROID_BUILD_TOOLS=29.0.3
 
 android:
   components:
@@ -35,4 +35,4 @@ android:
 
 script:
   - chmod +x ./gradlew
-  - "./gradlew :app:assembleDebug"
+  - "./gradlew clean test build"# :app:assembleDebug 生成构建
