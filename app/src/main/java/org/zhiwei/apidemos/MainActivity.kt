@@ -1,7 +1,23 @@
 package org.zhiwei.apidemos
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import org.zhiwei.accessibility.AccessibilityActivity
+import org.zhiwei.animation.AnimationActivity
+import org.zhiwei.apidemos.databinding.ActivityMainBinding
+import org.zhiwei.app.AppActivity
+import org.zhiwei.content.ContentActivity
+import org.zhiwei.graphics.GraphicsActivity
+import org.zhiwei.hardware.HardwareActivity
+import org.zhiwei.media.MediaActivity
+import org.zhiwei.nfc.NfcActivity
+import org.zhiwei.os.OSActivity
+import org.zhiwei.preference.PreferenceActivity
+import org.zhiwei.security.SecurityActivity
+import org.zhiwei.views.ViewsActivity
 
 /**
  * 作者： 志威  zhiwei.org
@@ -20,9 +36,33 @@ import androidx.appcompat.app.AppCompatActivity
  */
 class MainActivity : AppCompatActivity() {
 
+    companion object {
+        //各个模块的入口Activity的配置
+        private val modules = arrayListOf(
+            AccessibilityActivity::class,
+            AnimationActivity::class,
+            AppActivity::class,
+            ContentActivity::class,
+            GraphicsActivity::class,
+            HardwareActivity::class,
+            MediaActivity::class,
+            NfcActivity::class,
+            OSActivity::class,
+            PreferenceActivity::class,
+            SecurityActivity::class,
+            ViewsActivity::class
+        )
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        val binding =
+            DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+        val activities = modules.map { it.simpleName }
+        binding.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, activities)
+        binding.lvMain.setOnItemClickListener { parent, view, position, id ->
+            startActivity(Intent(this, modules[position].java))
+        }
     }
 
 }

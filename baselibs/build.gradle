@@ -1,8 +1,8 @@
-//配置各个module共用的参数
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'//kotlin语言使用注入框架，dataBinding都需要这个
-
+apply plugin: 'kotlin-kapt'
+//BaseLib供其他Lib使用，所以暂时不引用dependencies.gradle中的配置
 android {
     compileSdkVersion compile_sdk_version
     buildToolsVersion build_tools_version
@@ -40,8 +40,6 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.2.0'
-    //通用基础库
-    implementation project(":baselibs")
 
     //单元测试相关依赖
     testImplementation 'junit:junit:4.12'

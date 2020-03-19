@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout>
 
-</LinearLayout>
+    <data>
+
+        <variable
+            name="adapter"
+            type="android.widget.BaseAdapter" />
+    </data>
+
+    <ListView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/lv_main"
+        adapter="@{adapter}"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</layout>
