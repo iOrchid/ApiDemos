@@ -35,4 +35,4 @@ android:
 
 script:
   - chmod +x ./gradlew
-  - "./gradlew clean test build"# :app:assembleDebug 生成构建
+  - "./gradlew :app:assembleDebug"# :app:assembleDebug 生成构建
