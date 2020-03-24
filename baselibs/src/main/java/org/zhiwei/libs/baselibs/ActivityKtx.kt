@@ -1,11 +1,16 @@
 package org.zhiwei.libs.baselibs
 
 import android.app.Activity
+import android.content.Context
 import android.view.View
 import android.widget.Toast
+import androidx.activity.ComponentActivity
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 
 /**
  * 作者： 志威  zhiwei.org
@@ -23,7 +28,7 @@ import androidx.databinding.ViewDataBinding
  * Activity相关的扩展
  */
 
-//<editor-folder desc="Activity相关的扩展">
+//<editor-folder desc="Activity相关的扩展函数">
 /**
  * Activity中弹出toast提示
  * [text] tips文案
@@ -49,6 +54,32 @@ fun <T : ViewDataBinding> Activity.bindView(@LayoutRes layout: Int): T {
  */
 fun <T : ViewDataBinding> Activity.bindView(view: View): T? {
     return DataBindingUtil.bind<T>(view)
+}
+
+
+//</editor-folder>
+
+
+//<editor-folder desc="Activity相关的扩展属性">
+
+/**
+ * 扩展属性，给Activity添加context字段，Fragment自身已经有了，所以不需要
+ * 如果需要 Service也可以扩展必要的属性和函数
+ * todo 扩展属性也可以尝试使用代理/委托事项，更优美??，或者参照let/also等标准扩展函数的写法
+ */
+val Activity.context: Context
+    get() = this
+
+/**
+ * 给ComponentActivity扩展lifeCycleOwner属性，因为它实现了lifeCycleOwner、ViewModelStoreOwner等JetPack相关的
+ * 而顶层的Activity是没有实现的
+ */
+val ComponentActivity.viewLifeCycleOwner: LifecycleOwner
+    get() = this
+
+
+fun <T : Any> ComponentActivity.observe(live: LiveData<T>, observer: Observer<T>) {
+    live.observe(this, observer)
 }
 
 //</editor-folder>

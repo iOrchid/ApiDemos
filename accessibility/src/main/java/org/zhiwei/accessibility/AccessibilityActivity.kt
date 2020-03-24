@@ -2,6 +2,9 @@ package org.zhiwei.accessibility
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
+import org.zhiwei.libs.baselibs.observe
 
 /**
  * 作者： 志威  zhiwei.org
@@ -23,5 +26,14 @@ class AccessibilityActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_accessibility)
+        "".also { }
+        val live = MutableLiveData<String>()
+        live.observe(this, Observer {
+
+        })
+        observe(live, Observer {
+
+        })
+
     }
 }
