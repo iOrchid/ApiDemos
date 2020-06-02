@@ -1,13 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="10dp">
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title_security"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Security Activity" />
+        android:text="目前该模块下仅有 keyStore 相关使用演示"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</LinearLayout>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_desc_security"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@string/str_desc_key_store"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_security" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_process_security"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str_step_key_store"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_desc_security" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_create_security"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="创建entry"
+        android:textAllCaps="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_process_security" />
+
+    <HorizontalScrollView
+        android:id="@+id/hsv_security"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/btn_create_security">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/ll_container_security"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" />
+    </HorizontalScrollView>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_key_security"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="选择entry后，输入存储的密钥明文，然后点击加密"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hsv_security" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_plaintext_security"
+        android:layout_width="260dp"
+        android:layout_height="40dp"
+        android:layout_margin="5dp"
+        android:gravity="center_vertical"
+        android:hint="这里输入需要存储的明文"
+        android:lines="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_key_security" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_sign_security"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="加密明文"
+        app:layout_constraintBottom_toBottomOf="@id/et_plaintext_security"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_ciphertext_security"
+        android:layout_width="260dp"
+        android:layout_height="40dp"
+        android:layout_margin="5dp"
+        android:gravity="center_vertical"
+        android:hint="这里就会是明文对应的密文"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_plaintext_security" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_verify_security"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="校验匹配"
+        app:layout_constraintBottom_toBottomOf="@id/et_ciphertext_security"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

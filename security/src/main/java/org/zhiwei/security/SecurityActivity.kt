@@ -2,6 +2,7 @@ package org.zhiwei.security
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import org.zhiwei.libui.UiKt
 
 /**
  * 作者： 志威  zhiwei.org
@@ -22,6 +23,6 @@ class SecurityActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_security)
+        UiKt.screenDensity
     }
 }

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Security</string>
+    <string name="str_desc_key_store">KeyStore功能,用于存储不同的entry条目；
+    每个entry条目内，可以有明文PlainText，通过加密得到对应密文CipherText； 使用的时候可以用密文来对比校验，有点类似对密码md5加密，然后用md5值对比较严密码是否匹配;
+        不同的entry之间是独立的；使用场景：用于存储密码，敏感信息到AndroidKeyStore中，比SharedPreference或者其他方式相对安全。</string>
+    <string name="str_step_key_store">1、创建entry;\n2、选择entry，将需要存储的字符，编码加密，存储其中，并得到加密后的密文\n3、使用的时候，可以用密文来在对应entry中校验和明文是否匹配</string>
 </resources>
