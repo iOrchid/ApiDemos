@@ -1,0 +1,7 @@
+# 配置AS项目的目录忽略
+build
+.gradle
+.idea
+*.iml
+local.properties
+
